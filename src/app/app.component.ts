@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Base } from 'src/app/base';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,4 @@ import { Base } from 'src/app/base';
 })
 export class AppComponent {
   title = 'app';
-  base = new Base();
 }

@@ -1,16 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { appRoutes } from './routes';
+
+import {
+  ItemsListComponent,
+  ItemService,
+  ItemListResolver
+} from './items/index';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ItemsListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    ItemService,
+    ItemListResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
