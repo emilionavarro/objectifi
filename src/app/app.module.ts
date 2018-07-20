@@ -8,6 +8,7 @@ import { appRoutes } from './routes';
 import {
   ItemsListComponent,
   ItemComponent,
+  ItemDetailsComponent,
   ItemService,
   ItemListResolver
 } from './items/index';
@@ -16,7 +17,8 @@ import {
   declarations: [
     AppComponent,
     ItemsListComponent,
-    ItemComponent
+    ItemComponent,
+    ItemDetailsComponent
   ],
   imports: [
     BrowserModule,

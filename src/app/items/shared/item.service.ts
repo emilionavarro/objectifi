@@ -66,5 +66,15 @@ const ITEMS = [
                 
             }
         ]
+    },
+    {
+        id: 3,
+        name: 'invalid list',
+        type: 'invalid',
+        items: [
+            {
+                name: 'invalid item'
+            }
+        ]
     }
 ];
