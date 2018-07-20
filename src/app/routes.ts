@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { ItemsListComponent } from './items/index';
 import {
+    ItemsListComponent,
     ItemListResolver
 } from './items/index';
 
