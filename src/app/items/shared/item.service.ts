@@ -15,6 +15,51 @@ export class ItemService {
       }
 }
 
+/* 
+ * FieldsTypes:
+ *      String
+ *      Int
+ *      Float
+ *      {Object}
+ *      Boolean
+ *      Date
+ *      Time
+ */
+/*
+ * Object Field Properies:
+ *      DisplayName - String
+ *      FieldType - FieldTypes
+ *      NotChangeableOnEdit - boolean
+ *      TextHidden - boolean
+ *      EditRule(s) - JS function list(?)
+ */
+
+ /* 
+  * Example Type of Item:
+  *     Consumer
+  *         {
+  *             DisplayName: 'Name',
+  *             FieldType: string,
+  *             NotChangeableOnEdit: true,
+  *             TextHidden: false,
+  *             EditRules: function(value) { return value !== null ? true : false };
+  *         },
+  *         {
+  *             DisplayName: 'Quantity',
+  *             FieldType: int,
+  *             NotChangeableOnEdit: false,
+  *             TextHidden: false,
+  *             EditRules: function(value) { return value > 0 ? true : false };
+  *         },
+  *         {
+  *             DisplayName: 'Price',
+  *             FieldType: Float,
+  *             NotChangeableOnEdit: false,
+  *             TextHidden: false,
+  *             EditRules: function(value) { return value > 0 ? true : false };
+  *         }
+  *     See below in Items for an example of what would be saved in the DB.
+  */
 
 const ITEMS = [
     {
