@@ -25,7 +25,6 @@ import {
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    ItemService,
     ItemListResolver
   ],
   bootstrap: [AppComponent]

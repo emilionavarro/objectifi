@@ -2,7 +2,9 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { IItem } from './item.model'
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ItemService {
     getItems():Observable<IItem[]> {
         let subject = new Subject<IItem[]>()
