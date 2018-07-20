@@ -7,6 +7,7 @@ import { appRoutes } from './routes';
 
 import {
   ItemsListComponent,
+  ItemComponent,
   ItemService,
   ItemListResolver
 } from './items/index';
@@ -14,7 +15,8 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
-    ItemsListComponent
+    ItemsListComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

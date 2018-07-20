@@ -1,11 +1,17 @@
 <div class="container">
-    <div class="row">
-        <div class="col" style="text-align: center; padding-top: 50px;" *ngFor="let item of items">
-            <a href="#" class="card">
-                <div class="card-body">
-                    {{item.name}}
-                </div>
-            </a>
+    <div class="jumbotron" style="text-align: center;">
+        <h1>Objectifi</h1>
+        <p>Hey, that's pretty neat
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col" style="text-align: center; padding-top: 50px;" *ngFor="let item of items">
+                <list-item [item]="item">
+
+                </list-item>
+            </div>
         </div>
     </div>
 </div>
