@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
-import { appRoutes } from './routes';
+import { AppRoutingModule } from './app-routing.module';
 
 import {
   ItemsListComponent,
@@ -24,7 +22,7 @@ import { ConsumerComponent } from './items/consumer/consumer.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [
     ItemListResolver
