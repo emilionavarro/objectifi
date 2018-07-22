@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let subItem of item.items" class="list-group-item d-flex justify-content-between align-items-center">
+    {{subItem.name}}
+    <span class="badge badge-primary badge-pill">
+        {{subItem.quantity}}
+    </span>
+  </li>
+</ul>

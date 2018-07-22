@@ -12,13 +12,15 @@ import {
   ItemService,
   ItemListResolver
 } from './items/index';
+import { ConsumerComponent } from './items/consumer/consumer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsListComponent,
     ItemComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    ConsumerComponent
   ],
   imports: [
     BrowserModule,
