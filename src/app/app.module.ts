@@ -11,6 +11,7 @@ import {
   ItemListResolver
 } from './items/index';
 import { ConsumerComponent } from './items/consumer/consumer.component';
+import { TodoListComponent } from './items/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ConsumerComponent } from './items/consumer/consumer.component';
     ItemsListComponent,
     ItemComponent,
     ItemDetailsComponent,
-    ConsumerComponent
+    ConsumerComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
