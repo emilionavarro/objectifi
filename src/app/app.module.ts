@@ -12,6 +12,7 @@ import {
 } from './items/index';
 import { ConsumerComponent } from './items/consumer/consumer.component';
 import { TodoListComponent } from './items/todo-list/todo-list.component';
+import { HistoricalListComponent } from './items/historical-list/historical-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TodoListComponent } from './items/todo-list/todo-list.component';
     ItemComponent,
     ItemDetailsComponent,
     ConsumerComponent,
-    TodoListComponent
+    TodoListComponent, 
+    HistoricalListComponent
   ],
   imports: [
     BrowserModule,
