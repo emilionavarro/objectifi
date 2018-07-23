@@ -6,12 +6,12 @@ import {
   ItemDetailsComponent
 } from './items/index';
 
-const appRoutes: Routes=[
-  { path: 'items', component: ItemsListComponent, resolve: {items: ItemListResolver} },
+const appRoutes: Routes = [
+  { path: 'items', component: ItemsListComponent, resolve: { items: ItemListResolver } },
   { path: 'item/:id', component: ItemDetailsComponent },
-  { path: '', redirectTo: '/items', pathMatch: 'full' },
+  { path: '', redirectTo: 'items', pathMatch: 'full' },
   { path: '**', redirectTo: 'items', pathMatch: 'full' }
-  
+
 ];
 
 @NgModule({
@@ -24,4 +24,4 @@ const appRoutes: Routes=[
 
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }
