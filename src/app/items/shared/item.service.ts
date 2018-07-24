@@ -6,15 +6,20 @@ import { IItem } from './item.model'
     providedIn: 'root'
 })
 export class ItemService {
-    getItems():Observable<IItem[]> {
+    getItems(): Observable<IItem[]> {
         let subject = new Subject<IItem[]>()
-        setTimeout(() => {subject.next(ITEMS); subject.complete(); }, 100)
+        setTimeout(() => { subject.next(ITEMS); subject.complete(); }, 100)
         return subject
-      }
-    
-      getItem(id: number) {
+    }
+
+    getItem(id: number) {
         return ITEMS.find(item => item.id === id)
-      }
+    }
+
+    saveList(list) {
+        list.id = ITEMS.length;
+        ITEMS.push(list);
+    }
 }
 
 /* 
@@ -36,32 +41,32 @@ export class ItemService {
  *      EditRule(s) - JS function list(?)
  */
 
- /* 
-  * Example Type of Item:
-  *     Consumer
-  *         {
-  *             DisplayName: 'Name',
-  *             FieldType: string,
-  *             NotChangeableOnEdit: true,
-  *             TextHidden: false,
-  *             EditRules: function(value) { return value !== null ? true : false };
-  *         },
-  *         {
-  *             DisplayName: 'Quantity',
-  *             FieldType: int,
-  *             NotChangeableOnEdit: false,
-  *             TextHidden: false,
-  *             EditRules: function(value) { return value > 0 ? true : false };
-  *         },
-  *         {
-  *             DisplayName: 'Price',
-  *             FieldType: Float,
-  *             NotChangeableOnEdit: false,
-  *             TextHidden: false,
-  *             EditRules: function(value) { return value > 0 ? true : false };
-  *         }
-  *     See below in Items for an example of what would be saved in the DB.
-  */
+/* 
+ * Example Type of Item:
+ *     Consumer
+ *         {
+ *             DisplayName: 'Name',
+ *             FieldType: string,
+ *             NotChangeableOnEdit: true,
+ *             TextHidden: false,
+ *             EditRules: function(value) { return value !== null ? true : false };
+ *         },
+ *         {
+ *             DisplayName: 'Quantity',
+ *             FieldType: int,
+ *             NotChangeableOnEdit: false,
+ *             TextHidden: false,
+ *             EditRules: function(value) { return value > 0 ? true : false };
+ *         },
+ *         {
+ *             DisplayName: 'Price',
+ *             FieldType: Float,
+ *             NotChangeableOnEdit: false,
+ *             TextHidden: false,
+ *             EditRules: function(value) { return value > 0 ? true : false };
+ *         }
+ *     See below in Items for an example of what would be saved in the DB.
+ */
 
 const ITEMS = [
     {
@@ -80,7 +85,7 @@ const ITEMS = [
                 price: 5.12
             }
         ]
-    }, 
+    },
     {
         id: 1,
         name: 'todo',
@@ -110,7 +115,7 @@ const ITEMS = [
                         price: 500.12
                     }
                 ]
-                
+
             }
         ]
     },
