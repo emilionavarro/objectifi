@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-my-string',
+  selector: 'generic-string-input',
   templateUrl: './my-string.component.html',
   styleUrls: ['./my-string.component.css']
 })
@@ -76,7 +76,6 @@ export class MyStringComponent implements OnInit {
   }
 
   onChanged(newValue) {
-    console.log(newValue);
     this.valdiationMessage = '';
     this.showValdiationMessage = false;
     
@@ -94,7 +93,6 @@ export class MyStringComponent implements OnInit {
     }
     
     this._myString = newValue;
-    console.log(this._myString);
     this.changed.emit(this._myString);
   }
 }
