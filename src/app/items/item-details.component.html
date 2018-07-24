@@ -9,18 +9,14 @@
             </div>
 
             <!-- Todo list -->
-            <ul class="list-group" *ngSwitchCase="'todo'">
-                <li class="list-group-item" *ngFor="let subItem of item.items">
-                    {{subItem.name}}
-                </li>
-            </ul>
+            <div *ngSwitchCase="'todo'">
+                <todo-list [item]="item"></todo-list>
+            </div>
 
             <!-- Historical list -->
-            <ul class="list-group" *ngSwitchCase="'historical'">
-                <li class="list-group-item" *ngFor="let subItem of item.items">
-                    {{subItem.name}}
-                </li>
-            </ul>
+            <div *ngSwitchCase="'todo'">
+                <historical-list [item]="item"></historical-list>
+            </div>
 
             <!-- Default list -->
             <ul class="list-group" *ngSwitchDefault>
