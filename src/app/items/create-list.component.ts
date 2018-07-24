@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IItem } from './shared/index';
 import { Router } from '@angular/router'
 import { ItemService } from './shared/item.service';
 
@@ -14,6 +13,8 @@ export class CreateListComponent {
     }
 
     saveList(formValues) {
+        formValues.type = 'historical'; // All lists in objectifi will be historical, however the type will 
+
         this.itemService.saveList(formValues);
         this.isDirty = false;
         this.router.navigate(['/items']);
