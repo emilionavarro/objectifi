@@ -1,6 +1,4 @@
-# Project Title
-
-Objectifi
+# Objectifi
 
 ## Getting Started
 
