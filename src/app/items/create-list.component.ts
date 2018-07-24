@@ -4,13 +4,7 @@ import { Router } from '@angular/router'
 import { ItemService } from './shared/item.service';
 
 @Component({
-    template: `
-        <div>
-            <form>
-
-            </form>
-        </div>
-    `
+    templateUrl: "create-list.component.html"
 })
 export class CreateListComponent {
     newList

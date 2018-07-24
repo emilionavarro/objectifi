@@ -18,6 +18,7 @@ import { ConsumerComponent } from './items/consumer/consumer.component';
 import { MyStringComponent } from './items/inputs/my-string/my-string.component';
 import { TodoListComponent } from './items/todo-list/todo-list.component';
 import { HistoricalListComponent } from './items/historical-list/historical-list.component';
+import { CreateListComponent } from './items/create-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HistoricalListComponent } from './items/historical-list/historical-list
     ConsumerComponent,
     TodoListComponent, 
     MyStringComponent,
-    HistoricalListComponent
+    HistoricalListComponent,
+    CreateListComponent
   ],
   imports: [
     BrowserModule,
