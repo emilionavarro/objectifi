@@ -1,4 +1,5 @@
 # Objectifi
+An app to help you keep track of things
 
 ## Getting Started
 
