@@ -1,0 +1,20 @@
+<div>
+  <div>
+    <label class="genericstringlabel">
+      {{label}}
+    </label>
+    <label class="genericstringvaldiation" 
+      *ngIf="showValdiationMessage == true">
+      {{valdiationMessage}}
+    </label>
+  </div>
+  
+  <input class="genericstringinput"
+    type="text" 
+    ng-readonly="readOnly"
+    ng-required="required" 
+    [ngModel]="myString"
+    (ngModelChange)="myString=$event"
+    placeholder="{{placeHolder}}"
+  />
+</div>
