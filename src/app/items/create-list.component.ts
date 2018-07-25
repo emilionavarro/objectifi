@@ -10,7 +10,7 @@ export class CreateListComponent {
     isDirty:boolean = true;
     constructor(private router: Router, private itemService: ItemService) {
 
-    }
+    } 
 
     saveList(formValues) {
         formValues.type = 'historical'; // All lists in objectifi will be historical, however the type will 
