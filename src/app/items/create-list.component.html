@@ -1,12 +1,24 @@
-<div>
-    <form #newListForm="ngForm" (ngSubmit)="saveList(newListForm.value)" autocomplete="off" novalidate>
-        <div class="form-group" [ngClass]="{'error': newListForm.controls.name?.invalid && newListForm.controls.name?.touched}">
-            <label for="listName">List Name:</label>
-            <em *ngIf="newListForm.controls.name?.invalid && (newListForm.controls.name?.touched)">Required</em>
-            <input (ngModel)="newList.name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your list..." />
-        </div>
+<div class="container" style="top:50%; position: relative; transform: translateY(50%);">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Create List
+                </div>
+                <div class="card-body">
+                    <form #newListForm="ngForm" (ngSubmit)="saveList(newListForm.value)" autocomplete="off" novalidate>
+                        <div class="form-group" [ngClass]="{'error': newListForm.controls.name?.invalid && newListForm.controls.name?.touched}">
+                            <label for="listName">List Name:</label>
+                            <em *ngIf="newListForm.controls.name?.invalid && (newListForm.controls.name?.touched)">Required</em>
+                            <input (ngModel)="newList.name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your list..."
+                            />
+                        </div>
 
-        <button type="submit" [disabled]="newListForm.invalid" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
-    </form>
+                        <button type="submit" [disabled]="newListForm.invalid" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -15,7 +15,7 @@ import {
   ItemListResolver
 } from './items/index';
 import { ConsumerComponent } from './items/consumer/consumer.component';
-import { MyStringComponent } from './items/inputs/my-string/my-string.component';
+import { MyStringComponent } from './items/Inputs/my-string/my-string.component';
 import { TodoListComponent } from './items/todo-list/todo-list.component';
 import { HistoricalListComponent } from './items/historical-list/historical-list.component';
 import { CreateListComponent } from './items/create-list.component';
@@ -27,16 +27,17 @@ import { CreateListComponent } from './items/create-list.component';
     ItemComponent,
     ItemDetailsComponent,
     ConsumerComponent,
-    TodoListComponent, 
+    TodoListComponent,
     MyStringComponent,
     HistoricalListComponent,
     CreateListComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    RouterModule
   ],
   providers: [
     ItemListResolver

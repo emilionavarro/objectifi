@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { IItem } from './shared/index';
 import { ItemService } from './shared/item.service';
 import { ActivatedRoute } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
     templateUrl: './items-list.component.html'
