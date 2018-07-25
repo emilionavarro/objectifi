@@ -15,7 +15,7 @@ import {
   ItemListResolver
 } from './items/index';
 import { ConsumerComponent } from './items/consumer/consumer.component';
-import { GenericStringInputComponent } from './items/Inputs/generic-string-input/generic-string-input.component';
+import { GenericStringInputComponent } from './common/Inputs/generic-string-input/generic-string-input.component';
 import { TodoListComponent } from './items/todo-list/todo-list.component';
 import { HistoricalListComponent } from './items/historical-list/historical-list.component';
 import { CreateListComponent } from './items/create-list.component';
