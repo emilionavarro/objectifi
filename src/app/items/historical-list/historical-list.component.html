@@ -1,16 +1,22 @@
-<ul class="list-group">
-    <li *ngFor="let subItem of item.items" class="list-group-item">
-        {{subItem.name}}
-    </li>
-</ul>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
 
-<form #newItemForm="ngForm" (ngSubmit)="saveItems(newItemForm.value)" novalidate *ngIf="addMode">
+        <ul class="list-group">
+            <li *ngFor="let subItem of item.items" class="list-group-item">
+                {{subItem.name}}
+            </li>
+        </ul>
 
-    <input (ngModel)="newItem.name" name="name" required id="name" type="text" class="form-control" placeholder="Item description..."
-        *ngIf="addMode" />
+        <form #newItemForm="ngForm" (ngSubmit)="saveItems(newItemForm.value)" novalidate autocomplete="off" *ngIf="addMode">
 
-    <button [disabled]="newItemForm.invalid" class="btn btn-primary">Save</button>
-</form>
+            <input (ngModel)="newItem.name" name="name" required id="name" type="text" class="form-control" placeholder="Item description..."
+                *ngIf="addMode" />
+
+            <button [disabled]="newItemForm.invalid" class="btn btn-primary">Save</button>
+        </form>
 
 
-<button [disabled]="addMode" class="btn btn-primary" (click)="enterAddMode()">Add Mode</button>
+        <button [disabled]="addMode" class="btn btn-primary" (click)="enterAddMode()">Add Mode</button>
+    </div>
+</div>
