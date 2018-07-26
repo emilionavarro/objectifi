@@ -22,17 +22,20 @@ export class ItemService {
     }
 
     updateList(list) {
-        let index: number = -1;
+        // let index: number = -1;
 
-        for (var i = 0, len = ITEMS.length; i < len; i++) {
-            if (list.name === ITEMS[i].name) {
-                index = i;
-            }
-        }
+        // for (var i = 0, len = ITEMS.length; i < len; i++) {
+        //     if (list.name === ITEMS[i].name) {
+        //         index = i;
+        //     }
+        // }
 
-        if (index > 0) {
-            ITEMS[index] = list;
-        }
+        // if (index > 0) {
+        //     ITEMS[index] = list;
+        // }
+        //SHOULD THIS BE A COPY TO KEEP SAFE?
+
+        //Call api to save changes to list
     }
 }
 
