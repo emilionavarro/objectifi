@@ -20,6 +20,20 @@ export class ItemService {
         list.id = ITEMS.length;
         ITEMS.push(list);
     }
+
+    updateList(list) {
+        let index: number = -1;
+
+        for (var i = 0, len = ITEMS.length; i < len; i++) {
+            if (list.name === ITEMS[i].name) {
+                index = i;
+            }
+        }
+
+        if (index > 0) {
+            ITEMS[index] = list;
+        }
+    }
 }
 
 /* 

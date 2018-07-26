@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IItem, IItemList, ListItem } from '../shared/index';
+import { IItem, IItemList, ListItem, ItemService } from '../shared/index';
 
 @Component({
     selector: 'historical-list',
@@ -9,6 +9,9 @@ export class HistoricalListComponent implements OnInit {
     newItem: ListItem;
     addMode: boolean;
     @Input() item: IItemList;
+
+    constructor(private itemService: ItemService) {
+    }
 
     ngOnInit() {
         this.newItem = new ListItem();
@@ -27,6 +30,7 @@ export class HistoricalListComponent implements OnInit {
 
     saveList() {
         //service.saveList()
+        this.itemService.updateList(this.item);
         this.toggleAddMode();
     }
 
