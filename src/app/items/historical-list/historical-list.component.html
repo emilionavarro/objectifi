@@ -3,14 +3,32 @@
         <h5 class="card-title">{{item.name}}</h5>
 
         <ul class="list-group">
-            <li *ngFor="let subItem of item.items" class="list-group-item">
-                {{subItem.name}}
+            <li *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" class="list-group-item">
+                <span (click)="toggleAddMode()" *ngIf="!addMode">{{subItem.name}}</span>
+
+                <form 
+                    #editItemForm="ngForm" 
+                    (ngSubmit)="saveList()" 
+                    novalidate 
+                    autocomplete="off" 
+                    *ngIf="addMode">
+
+                    <input [(ngModel)]="item.items[i].name" name="editName"/>
+                    
+                </form>
             </li>
         </ul>
 
         <form #newItemForm="ngForm" (ngSubmit)="saveItems()" novalidate autocomplete="off">
 
-            <input [(ngModel)]="newItem.name" name="name" required type="text" class="form-control" placeholder="Item description..."/>
+            <input 
+                [(ngModel)]="newItem.name" 
+                name="name" 
+                required 
+                type="text" 
+                class="form-control" 
+                placeholder="Item description..."
+            />
 
         </form>
 

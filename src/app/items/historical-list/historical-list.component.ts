@@ -6,25 +6,32 @@ import { IItem, IItemList, ListItem } from '../shared/index';
     templateUrl: 'historical-list.component.html'
 })
 export class HistoricalListComponent implements OnInit {
-    newItem;
+    newItem: ListItem;
+    addMode: boolean;
     @Input() item: IItemList;
 
     ngOnInit() {
         this.newItem = new ListItem();
-
-        this.newItem.nam
+        this.addMode = false;
     }
 
-    enterAddMode() {
-        if (!this.item.items) {
-            this.item.items = [] as IItem[];
-        }
+    toggleAddMode() {
+        this.addMode = !this.addMode;
     }
 
     saveItems() {
         //service.saveItems(items
         this.item.items.push(this.newItem);
         this.newItem = new ListItem();
+    }
+
+    saveList() {
+        //service.saveList()
+        this.toggleAddMode();
+    }
+
+    trackByIndex(index: number, obj: any): any {
+        return index;
     }
 
 }
