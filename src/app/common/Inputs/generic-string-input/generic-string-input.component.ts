@@ -91,6 +91,7 @@ export class GenericStringInputComponent implements OnInit {
   }
 
   onChanged(newValue) {
+    this._myString = newValue;
     this.valdiationMessage = '';
     this.showValdiationMessage = false;
     
@@ -106,8 +107,7 @@ export class GenericStringInputComponent implements OnInit {
       this.valdiationMessage = "Value must be " + this._minLength.toString() + " and " + this._maxLength.toString() + " long";
       return;
     }
-    
-    this._myString = newValue;
+
     this.changed.emit(this._myString);
   }
 }

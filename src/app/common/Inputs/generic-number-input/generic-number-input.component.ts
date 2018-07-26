@@ -83,6 +83,7 @@ export class GenericNumberInputComponent implements OnInit {
   }
 
   onChanged(newValue) {
+    this._myNumber = Number(newValue);
     this.valdiationMessage = '';
     this.showValdiationMessage = false;
     
@@ -99,7 +100,6 @@ export class GenericNumberInputComponent implements OnInit {
       return;
     }
     
-    this._myNumber = Number(newValue);
     this.changed.emit(this._myNumber);
   }
 }
