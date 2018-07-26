@@ -8,15 +8,11 @@
             </li>
         </ul>
 
-        <form #newItemForm="ngForm" (ngSubmit)="saveItems(newItemForm.value)" novalidate autocomplete="off" *ngIf="addMode">
+        <form #newItemForm="ngForm" (ngSubmit)="saveItems()" novalidate autocomplete="off">
 
-            <input (ngModel)="newItem.name" name="name" required id="name" type="text" class="form-control" placeholder="Item description..."
-                *ngIf="addMode" />
+            <input [(ngModel)]="newItem.name" name="name" required type="text" class="form-control" placeholder="Item description..."/>
 
-            <button [disabled]="newItemForm.invalid" class="btn btn-primary">Save</button>
         </form>
 
-
-        <button [disabled]="addMode" class="btn btn-primary" (click)="enterAddMode()">Add Mode</button>
     </div>
 </div>
