@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <label class="genericdatelabel">
+      {{label}}
+    </label>
+    <label class="genericdatevaldiation" 
+      *ngIf="showValdiationMessage == true">
+      {{valdiationMessage}}
+    </label>
+  </div>
+  
+  <input class="genericdateinput"
+    type="date" 
+    class="form-control" 
+    [readonly]="readOnly"
+    [required]="required" 
+    [ngModel]="myDate"
+    (ngModelChange)="myDate=$event"
+    name="{{name}}"
+  />
+</div>
