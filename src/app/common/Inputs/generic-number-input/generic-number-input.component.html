@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <label class="genericnumberlabel">
+      {{label}}
+    </label>
+    <label class="genericnumbervaldiation" 
+      *ngIf="showValdiationMessage == true">
+      {{valdiationMessage}}
+    </label>
+  </div>
+  
+  <input class="genericnumberinput"
+    type="number" 
+    [readonly]="readOnly"
+    [required]="required"
+    [ngModel]="myNumber"
+    (ngModelChange)="myNumber=$event"
+  />
+</div>

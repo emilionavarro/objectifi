@@ -11,8 +11,8 @@
   
   <input class="genericstringinput"
     type="text" 
-    ng-readonly="readOnly"
-    ng-required="required" 
+    [readonly]="readOnly"
+    [required]="required" 
     [ngModel]="myString"
     (ngModelChange)="myString=$event"
     placeholder="{{placeHolder}}"
