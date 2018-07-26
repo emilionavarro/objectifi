@@ -18,6 +18,7 @@ export class GenericNumberInputComponent implements OnInit {
   private _readOnly;
   private _min;
   private _max;
+  private _name;
 
   showValdiationMessage: boolean;
   valdiationMessage: string;
@@ -58,6 +59,12 @@ export class GenericNumberInputComponent implements OnInit {
   }
   get max(): number { return this._max; }
 
+  @Input() 
+  set name(name: string) {
+    this._name = (name && name.trim()) || '';
+  }
+  get name(): string { return this._name; }
+
   @Output() changed = new EventEmitter<number>();
 
   constructor() { 
@@ -67,6 +74,7 @@ export class GenericNumberInputComponent implements OnInit {
     this._min = 0;
     this._max = 9999999999;
     this._myNumber = 0;
+    this._name = "";
   }
 
   ngOnInit() {

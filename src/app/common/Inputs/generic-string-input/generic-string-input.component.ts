@@ -19,6 +19,7 @@ export class GenericStringInputComponent implements OnInit {
   private _minLength;
   private _maxLength;
   private _placeHolder;
+  private _name;
 
   showValdiationMessage: boolean;
   valdiationMessage: string;
@@ -65,6 +66,12 @@ export class GenericStringInputComponent implements OnInit {
   }
   get maxLength(): number { return this._maxLength; }
 
+  @Input() 
+  set name(name: string) {
+    this._name = (name && name.trim()) || '';
+  }
+  get name(): string { return this._name; }
+
   @Output() changed = new EventEmitter<String>();
 
   constructor() { 
@@ -75,6 +82,7 @@ export class GenericStringInputComponent implements OnInit {
     this._maxLength = 256;
     this._myString = "";
     this._placeHolder = "";
+    this._name = "";
   }
 
   ngOnInit() {
