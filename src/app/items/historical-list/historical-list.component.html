@@ -40,12 +40,12 @@
             </li>
         </ul>
 
-        <form #newItemForm="ngForm" (ngSubmit)="saveItems()" novalidate autocomplete="off">
+        <form #newItemForm="ngForm" (ngSubmit)="saveItems()" autocomplete="off">
 
             <generic-string-input
                 [name]="name"
                 [input]="newItem.name"
-                [required]=true
+                [required]=false
                 [placeHolder]="'Item description...'"
                 (changed)="newItem.name=$event"
             >
