@@ -31,7 +31,7 @@ export class GenericNumberInputComponent implements OnInit {
 
   @Input('label')
   set label (label: string) {
-    this._label = (label && label.trim()) || '<Label not set>';
+    this._label = (label && label.trim()) || '';
   }
   get label(): string { return this._label; }
 
@@ -68,7 +68,7 @@ export class GenericNumberInputComponent implements OnInit {
   @Output() changed = new EventEmitter<number>();
 
   constructor() { 
-    this._label = '<Label not set>';
+    this._label = '';
     this._readOnly = false;
     this._required = false;
     this._min = 0;

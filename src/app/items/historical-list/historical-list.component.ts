@@ -7,7 +7,7 @@ import { IItem, IItemList, ListItem, ItemService } from '../shared/index';
 })
 export class HistoricalListComponent implements OnInit {
     newItem: ListItem;
-    addMode: boolean;
+    addModeIndex: number;
     @Input() item: IItemList;
 
     constructor(private itemService: ItemService) {
@@ -15,11 +15,15 @@ export class HistoricalListComponent implements OnInit {
 
     ngOnInit() {
         this.newItem = new ListItem();
-        this.addMode = false;
+        this.addModeIndex = -1;
     }
 
-    toggleAddMode() {
-        this.addMode = !this.addMode;
+    enterAddMode(index: number) {
+        this.addModeIndex = index;
+    }
+
+    exitAddMode() {
+        this.addModeIndex = -1;
     }
 
     saveItems() {
@@ -31,11 +35,20 @@ export class HistoricalListComponent implements OnInit {
     saveList() {
         //service.saveList()
         this.itemService.updateList(this.item);
-        this.toggleAddMode();
+        this.exitAddMode();
     }
 
     trackByIndex(index: number, obj: any): any {
         return index;
+    }
+
+    deleteItem(index: number) {
+        this.item.items.splice(index, 1);
+        
+        if (this.addModeIndex >= 0) {
+            this.exitAddMode();
+        }
+        //service.saveList()
     }
 
 }

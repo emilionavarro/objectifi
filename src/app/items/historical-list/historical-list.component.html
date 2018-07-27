@@ -4,18 +4,39 @@
 
         <ul class="list-group">
             <li *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" class="list-group-item">
-                <span (click)="toggleAddMode()" *ngIf="!addMode">{{subItem.name}}</span>
 
-                <form 
-                    #editItemForm="ngForm" 
-                    (ngSubmit)="saveList()" 
-                    novalidate 
-                    autocomplete="off" 
-                    *ngIf="addMode">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <button type="button" class="btn btn-danger" (click)="deleteItem(i)">DEL</button>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" *ngIf="i !== addModeIndex">
+                            <span (click)="enterAddMode(i)">{{subItem.name}}</span>
+                        </div>
 
-                    <input [(ngModel)]="item.items[i].name" name="editName"/>
-                    
-                </form>
+                        <form 
+                            #editItemForm="ngForm" 
+                            (ngSubmit)="saveList()" 
+                            novalidate 
+                            autocomplete="off" 
+                            *ngIf="i === addModeIndex"
+                            class="col-xs-8 col-sm-8 col-md-8 col-lg-8"
+                            >
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <input [(ngModel)]="item.items[i].name" class="form-control" name="editName"/>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </form>
+                    </div>
+                </div>
+                
+
+
             </li>
         </ul>
 
@@ -29,6 +50,8 @@
                 (changed)="newItem.name=$event"
             >
             </generic-string-input>
+            
+
             <!-- <input 
                 [(ngModel)]="newItem.name" 
                 name="name" 
