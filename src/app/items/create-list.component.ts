@@ -13,7 +13,8 @@ export class CreateListComponent {
     } 
 
     saveList(formValues) {
-        formValues.type = 'historical'; // All lists in objectifi will be historical, however the type will 
+        formValues.type = 'historical'; // All lists in objectifi will be historical, however the type will
+        formValues.items = [];
 
         this.itemService.saveList(formValues);
         this.isDirty = false;
