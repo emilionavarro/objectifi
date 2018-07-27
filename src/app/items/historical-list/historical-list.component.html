@@ -26,7 +26,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <input [(ngModel)]="item.items[i].name" class="form-control" name="editName"/>
+                                        <input [(ngModel)]="item.items[i].name" class="form-control" name="editName" (blur)="saveList()"/>
                                     </div>
                                 </div>
                             </div>
@@ -48,6 +48,7 @@
                 [required]=false
                 [placeHolder]="'Item description...'"
                 (changed)="newItem.name=$event"
+                (blur)="saveItems()"
             >
             </generic-string-input>
             

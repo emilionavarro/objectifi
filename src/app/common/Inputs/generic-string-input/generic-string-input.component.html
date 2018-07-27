@@ -16,6 +16,7 @@
     [required]="required" 
     [ngModel]="myString"
     (ngModelChange)="myString=$event"
+    (blur)="onBlur()"
     placeholder="{{placeHolder}}"
     name="{{name}}"
   />

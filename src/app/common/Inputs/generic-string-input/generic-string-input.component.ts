@@ -73,6 +73,8 @@ export class GenericStringInputComponent implements OnInit {
   get name(): string { return this._name; }
 
   @Output() changed = new EventEmitter<String>();
+  
+  @Output() blur = new EventEmitter();
 
   constructor() { 
     this._label = '';
@@ -109,5 +111,10 @@ export class GenericStringInputComponent implements OnInit {
     }
 
     this.changed.emit(this._myString);
+  }
+
+  onBlur() {
+    this.blur.emit();
+
   }
 }
