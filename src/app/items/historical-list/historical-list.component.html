@@ -1,10 +1,12 @@
 <div class="mdc-layout-grid">
+
     <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone"
-            style="text-align: center">
+            style="text-align: center; margin-bottom: 20px;">
             <h1>{{item.name}}</h1>
         </div>
     </div>
+
     <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
 
@@ -31,19 +33,22 @@
 
             </mat-card>
 
-            <form #newItemForm="ngForm" (ngSubmit)="saveItems()" autocomplete="off">
-
-                <mat-form-field appearance="outline">
-                    <mat-label>New Item</mat-label>
-                    <input matInput name="name" [(ngModel)]="newItem.name" placeholder="Description...">
-                    <mat-hint>Add a New Item!</mat-hint>
-                </mat-form-field>
-
-            </form>
         </div>
         <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
 
         </div>
+    </div>
+
+    <div class="mdc-layout-grid__inner">
+        <form #newItemForm="ngForm" (ngSubmit)="saveItems()" autocomplete="off" class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+
+            <mat-form-field appearance="outline">
+                <mat-label>New Item</mat-label>
+                <input matInput name="name" [(ngModel)]="newItem.name" placeholder="Description...">
+                <mat-hint>Add a New Item!</mat-hint>
+            </mat-form-field>
+
+        </form>
     </div>
 
 
