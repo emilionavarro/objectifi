@@ -1,55 +1,54 @@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{item.name}}</h5>
+<div class="container-fluid">
+    <div class="row" style="padding-bottom:50px;">
+        <div class="col-12" style="text-align:center;">
+                <h1>{{item.name}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                <li *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" class="list-group-item">
 
-        <ul class="list-group">
-            <li *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" class="list-group-item">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <button type="button" class="btn btn-danger" (click)="deleteItem(i)">DEL</button>
+                            </div>
+                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" *ngIf="i !== addModeIndex">
+                                <input [readonly]="true" class="form-control" [(ngModel)]="item.items[i].name" (click)="enterAddMode(i)" />
+                            </div>
 
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <button type="button" class="btn btn-danger" (click)="deleteItem(i)">DEL</button>
-                        </div>
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" *ngIf="i !== addModeIndex">
-                            <input [readonly]="true" class="form-control" [(ngModel)]="item.items[i].name" (click)="enterAddMode(i)" />
-                        </div>
+                            <form #editItemForm="ngForm" (ngSubmit)="saveList()" novalidate autocomplete="off" *ngIf="i === addModeIndex" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
-                        <form 
-                            #editItemForm="ngForm" 
-                            (ngSubmit)="saveList()" 
-                            novalidate 
-                            autocomplete="off" 
-                            *ngIf="i === addModeIndex"
-                            class="col-xs-8 col-sm-8 col-md-8 col-lg-8"
-                            >
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <input [(ngModel)]="item.items[i].name" class="form-control" name="editName" (blur)="saveList()"/>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <input [(ngModel)]="item.items[i].name" class="form-control" name="editName" (blur)="saveList()" />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        
-                        </form>
+
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
 
-        <form #newItemForm="ngForm" (ngSubmit)="saveItems()" autocomplete="off">
+            <form #newItemForm="ngForm" (ngSubmit)="saveItems()" autocomplete="off">
 
-            <generic-string-input
-                [name]="name"
-                [input]="newItem.name"
-                [required]=false
-                [placeHolder]="'Item description...'"
-                (changed)="newItem.name=$event"
-                (blur)="saveItems()"
-            >
-            </generic-string-input>
+                <generic-string-input [name]="name" [input]="newItem.name" [required]=false [placeHolder]="'Item description...'" (changed)="newItem.name=$event"
+                    (blur)="saveItems()">
+                </generic-string-input>
 
-        </form>
+            </form>
+        </div>
 
+        <div class="col">
+            <div class="card">
+                <h5>
+                    hi
+                </h5>
+            </div>
+        </div>
     </div>
 </div>
