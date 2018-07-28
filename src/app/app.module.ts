@@ -13,7 +13,12 @@ Material Design Modules
 import { 
   MatMenuModule, 
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatListModule,
+  MatCardModule,
+  MatGridListModule,
+  MatFormFieldModule,
+  MatInputModule
  } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -63,7 +68,12 @@ import { GenericDateInputComponent } from './common/Inputs/generic-date-input/ge
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatListModule,
+    MatCardModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     ItemListResolver

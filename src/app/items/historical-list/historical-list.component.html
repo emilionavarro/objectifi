@@ -1,46 +1,55 @@
 <div class="container-fluid">
     <div class="row" style="padding-bottom:50px;">
         <div class="col-12" style="text-align:center;">
-                <h1>{{item.name}}</h1>
+            <h1>{{item.name}}</h1>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <ul class="list-group">
-                <li *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" class="list-group-item">
 
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <button type="button" class="btn btn-danger" (click)="deleteItem(i)">DEL</button>
-                            </div>
-                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" *ngIf="i !== addModeIndex">
+            <mat-card *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" style="margin-bottom: 20px">
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-10">
+                            <div *ngIf="i !== addModeIndex">
                                 <input [readonly]="true" class="form-control" [(ngModel)]="item.items[i].name" (click)="enterAddMode(i)" />
                             </div>
 
-                            <form #editItemForm="ngForm" (ngSubmit)="saveList()" novalidate autocomplete="off" *ngIf="i === addModeIndex" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <form #editItemForm="ngForm" (ngSubmit)="saveList()" novalidate autocomplete="off" *ngIf="i === addModeIndex">
 
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <input [(ngModel)]="item.items[i].name" class="form-control" name="editName" (blur)="saveList()" />
-                                        </div>
-                                    </div>
-                                </div>
+                                <input [(ngModel)]="item.items[i].name" class="form-control" name="editName" (blur)="saveList()" />
 
                             </form>
                         </div>
+
+                        <div class="col-2">
+                            <button mat-icon-button [matMenuTriggerFor]="itemMenu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                        </div>
+
                     </div>
-                </li>
-            </ul>
+                </div>
+            </mat-card>
 
             <form #newItemForm="ngForm" (ngSubmit)="saveItems()" autocomplete="off">
 
-                <generic-string-input [name]="name" [input]="newItem.name" [required]=false [placeHolder]="'Item description...'" (changed)="newItem.name=$event"
+                <!-- <generic-string-input [name]="name" [input]="newItem.name" [required]=false [placeHolder]="'Item description...'" (changed)="newItem.name=$event"
                     (blur)="saveItems()">
-                </generic-string-input>
+                </generic-string-input> -->
+
+                <!-- Sorry Phil, I don't know how to put this in generic string input right now... -->
+                <mat-form-field appearance="outline">
+                    <mat-label>New Item</mat-label>
+                    <input matInput name="name" [(ngModel)]="newItem.name" placeholder="Description...">
+                    <mat-hint>Add a New Item!</mat-hint>
+                </mat-form-field>
 
             </form>
+
+
         </div>
 
         <div class="col">
@@ -50,14 +59,11 @@
                 </h5>
             </div>
         </div>
+
     </div>
 </div>
 
-<mat-menu #appMenu="matMenu">
-        <button mat-menu-item>Settings</button>
-        <button mat-menu-item>Help</button>
-      </mat-menu>
-      
-      <button mat-icon-button [matMenuTriggerFor]="appMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+<mat-menu #itemMenu="matMenu">
+    <button mat-menu-item>Edit</button>
+    <button mat-menu-item (click)="deleteItem(i)">Delete</button>
+</mat-menu>
