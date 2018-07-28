@@ -38,8 +38,10 @@ export class HistoricalListComponent implements OnInit {
 
     saveList() {
         //service.saveList()
+        if(this.item.name !== ''){
         this.itemService.updateList(this.item);
         this.exitAddMode();
+        }
     }
 
     trackByIndex(index: number, obj: any): any {

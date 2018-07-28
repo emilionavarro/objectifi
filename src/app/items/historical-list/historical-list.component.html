@@ -45,7 +45,7 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>New Item</mat-label>
-                <input matInput name="name" [(ngModel)]="newItem.name" placeholder="Description...">
+                <input matInput name="name" [(ngModel)]="newItem.name" placeholder="Description..." (blur)="saveItems()">
                 <mat-hint>Add a New Item!</mat-hint>
             </mat-form-field>
 
