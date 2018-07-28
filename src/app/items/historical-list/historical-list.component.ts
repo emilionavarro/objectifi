@@ -28,8 +28,12 @@ export class HistoricalListComponent implements OnInit {
 
     saveItems() {
         //service.saveItems(items
-        this.item.items.push(this.newItem);
-        this.newItem = new ListItem();
+
+        if(this.newItem.name !== '') {
+            this.item.items.push(this.newItem);
+            this.newItem = new ListItem();
+        }
+
     }
 
     saveList() {
