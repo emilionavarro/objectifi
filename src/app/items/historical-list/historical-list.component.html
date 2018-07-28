@@ -11,8 +11,6 @@
                             <button type="button" class="btn btn-danger" (click)="deleteItem(i)">DEL</button>
                         </div>
                         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" *ngIf="i !== addModeIndex">
-                            <!-- <span (click)="enterAddMode(i)">{{subItem.name}}</span> -->
-
                             <input [readonly]="true" class="form-control" [(ngModel)]="item.items[i].name" (click)="enterAddMode(i)" />
                         </div>
 
@@ -36,9 +34,6 @@
                         </form>
                     </div>
                 </div>
-                
-
-
             </li>
         </ul>
 
@@ -53,16 +48,6 @@
                 (blur)="saveItems()"
             >
             </generic-string-input>
-            
-
-            <!-- <input 
-                [(ngModel)]="newItem.name" 
-                name="name" 
-                required 
-                type="text" 
-                class="form-control" 
-                placeholder="Item description..."
-            /> -->
 
         </form>
 
