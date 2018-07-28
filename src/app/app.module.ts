@@ -1,9 +1,26 @@
+/*
+Angular Modules
+*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+/*
+Material Design Modules
+*/
+import { 
+  MatMenuModule, 
+  MatIconModule,
+  MatButtonModule
+ } from '@angular/material';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/*
+Objectifi Modules
+*/
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,6 +31,7 @@ import {
   ItemService,
   ItemListResolver
 } from './items/index';
+
 import { ConsumerComponent } from './items/consumer/consumer.component';
 import { GenericStringInputComponent } from './common/Inputs/generic-string-input/generic-string-input.component';
 import { GenericNumberInputComponent } from './common/Inputs/generic-number-input/generic-number-input.component';
@@ -41,7 +59,11 @@ import { GenericDateInputComponent } from './common/Inputs/generic-date-input/ge
     BrowserModule,
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ItemListResolver
