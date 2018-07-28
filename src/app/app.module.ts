@@ -20,7 +20,7 @@ import { GenericNumberInputComponent } from './common/Inputs/generic-number-inpu
 import { TodoListComponent } from './items/todo-list/todo-list.component';
 import { HistoricalListComponent } from './items/historical-list/historical-list.component';
 import { CreateListComponent } from './items/create-list.component';
-import { GenericDateInputComponent } from './common/inputs/generic-date-input/generic-date-input.component';
+import { GenericDateInputComponent } from './common/Inputs/generic-date-input/generic-date-input.component';
 
 @NgModule({
   declarations: [
