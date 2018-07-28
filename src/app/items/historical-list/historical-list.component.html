@@ -9,10 +9,9 @@
 
             <mat-card *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" style="margin-bottom: 20px">
 
-                <div class="container-fluid">
-                    <div class="row">
-
-                        <div class="col-10">
+                <div class="mdc-layout-grid">
+                    <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-3-phone">
                             <div *ngIf="i !== addModeIndex">
                                 <input [readonly]="true" class="form-control" [(ngModel)]="item.items[i].name" (click)="enterAddMode(i)" />
                             </div>
@@ -23,16 +22,14 @@
 
                             </form>
                         </div>
-
-                        <div class="col-2">
+                        <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-1-phone">
                             <button mat-icon-button [matMenuTriggerFor]="itemMenu">
                                 <mat-icon>more_vert</mat-icon>
                             </button>
                         </div>
-
                     </div>
                 </div>
-                
+
             </mat-card>
 
             <form #newItemForm="ngForm" (ngSubmit)="saveItems()" autocomplete="off">
