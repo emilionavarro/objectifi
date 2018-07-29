@@ -107,14 +107,14 @@ const ITEMS = [
             },
             {
                 name: "Ram",
-                field: [
+                fields: [
                     {
                         fieldName: "date",
                         value: "1/1/2018"
                     },
                     {
                         fieldName: "price",
-                        value: 300
+                        value: 120
                     }
                 ]
             }

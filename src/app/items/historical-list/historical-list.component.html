@@ -36,8 +36,8 @@
 
         </div>
         <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-            <div *ngFor="let subItem of selectedItem?.items">
-                <h1>{{subItem.name}}</h1>
+            <div *ngFor="let subItem of selectedItem?.fields">
+                <span>{{subItem.fieldName}}: {{subItem.value}}</span>
             </div>
         </div>
     </div>
