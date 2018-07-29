@@ -1,21 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-10" [ngSwitch]="item.type">
-
-            <!-- Consumer list -->
-            <div *ngSwitchCase="'consumer'">
-                <app-consumer [item]="item"></app-consumer>
-            </div>
-
-            <!-- Todo list -->
-            <div *ngSwitchCase="'todo'">
-                <todo-list [item]="item"></todo-list>
-            </div>
+        <div class="col-10" [ngSwitch]="container.containerType">
 
             <!-- Historical list -->
             <div *ngSwitchCase="'historical'">
-                <historical-list [item]="item"></historical-list>
+                <historical-list [container]="container"></historical-list>
             </div>
 
             <!-- Default list -->

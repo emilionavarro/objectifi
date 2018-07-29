@@ -1,13 +1,13 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { IItem } from './item.model'
+import { ItemContainer } from './../../container/item-container.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemService {
-    getItems(): Observable<IItem[]> {
-        let subject = new Subject<IItem[]>()
+    getItems(): Observable<ItemContainer[]> {
+        let subject = new Subject<ItemContainer[]>()
         setTimeout(() => { subject.next(ITEMS); subject.complete(); }, 100)
         return subject
     }
@@ -88,66 +88,35 @@ export class ItemService {
 const ITEMS = [
     {
         id: 0,
-        name: 'Shopping List',
-        type: "consumer",
-        items: [
-            {
-                name: "banana",
-                quantity: 5,
-                price: null
-            },
-            {
-                name: "apple",
-                quantity: 1,
-                price: 5.12
-            }
-        ]
-    },
-    {
-        id: 1,
-        name: 'todo',
-        type: 'todo',
-        items: [
-            {
-                name: "talk to mert",
-                createdOn: Date.now(),
-                dueDate: Date.now(),
-                completedDate: null,
-                description: "do it",
-                subItems: []
-            }
-        ]
-    },
-    {
-        id: 2,
-        name: 'my pc parts',
-        type: 'historical',
+        name: "Computer Parts",
+        description: "A container with item parts and their purchase dates",
+        containerType: "historical",
         items: [
             {
                 name: "cpu",
-                date: Date.now(),
-                textHidden: false,
-                items: [
+                fields: [
                     {
-                        name: "this is a test",
-                    }
-                ],
-                customFields: [
+                        fieldName: "date",
+                        value: "1/1/2018"
+                    },
                     {
-                        price: 500.12
+                        fieldName: "price",
+                        value: 300
                     }
                 ]
-
-            }
-        ]
-    },
-    {
-        id: 3,
-        name: 'invalid list',
-        type: 'invalid',
-        items: [
+            },
             {
-                name: 'invalid item'
+                name: "Ram",
+                field: [
+                    {
+                        fieldName: "date",
+                        value: "1/1/2018"
+                    },
+                    {
+                        fieldName: "price",
+                        value: 300
+                    }
+                ]
             }
         ]
     }

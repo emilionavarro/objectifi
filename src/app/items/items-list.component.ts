@@ -1,20 +1,19 @@
 import { Component, OnInit } from "@angular/core";
-import { IItem } from './shared/index';
 import { ItemService } from './shared/item.service';
 import { ActivatedRoute } from '@angular/router';
-import { RouterModule, Routes } from '@angular/router';
+import { ItemContainer } from "../container/item-container.model";
 
 @Component({
     templateUrl: './items-list.component.html'
 })
 export class ItemsListComponent implements OnInit {
-    items:IItem[];
+    containers:ItemContainer[];
 
     constructor(private itemService: ItemService, private route:ActivatedRoute) {
 
     }
 
     ngOnInit() {
-        this.items = this.route.snapshot.data['items']; //get from route data
+        this.containers = this.route.snapshot.data['items']; //get from route data
     }
 }

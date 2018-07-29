@@ -3,14 +3,14 @@
     <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone"
             style="text-align: center; margin-bottom: 20px;">
-            <h1>{{item.name}}</h1>
+            <h1>{{container.name}}</h1>
         </div>
     </div>
 
     <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
 
-            <mat-card *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" style="margin-bottom: 20px">
+            <mat-card *ngFor="let subItem of container.items; let i=index; trackBy:trackByIndex;" style="margin-bottom: 20px">
 
                 <div (click)="selectItem(subItem);" class="mdc-layout-grid__inner">
 
@@ -18,7 +18,7 @@
 
                         <form #editItemForm="ngForm" (ngSubmit)="saveList($event)" novalidate autocomplete="off">
                             <mat-form-field class="example-full-width">
-                                <input matInput name="editableItemName" (click)="enterAddMode(i)" [(ngModel)]="item.items[i].name" name="editName" (blur)="saveList($event)" />
+                                <input matInput name="editableItemName" (click)="enterAddMode(i)" [(ngModel)]="container.items[i].name" name="editName" (blur)="saveList($event)" />
                                 <mat-hint *ngIf="addModeIndex !== i" >Saved</mat-hint>
                                 <mat-hint *ngIf="addModeIndex === i" >Not Saved</mat-hint>
                             </mat-form-field>

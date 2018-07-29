@@ -1,21 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IItem, IItemList, ListItem, ItemService } from '../shared/index';
+import { ItemService, Item } from '../shared/index';
+import { ItemContainer } from '../../container/item-container.model';
 
 @Component({
     selector: 'historical-list',
     templateUrl: 'historical-list.component.html'
 })
 export class HistoricalListComponent implements OnInit {
-    newItem: ListItem;
-    selectedItem: ListItem;
+    newItem: Item;
+    selectedItem: Item;
     addModeIndex: number;
-    @Input() item: IItemList;
+    @Input() container: ItemContainer;
 
     constructor(private itemService: ItemService) {
     }
 
     ngOnInit() {
-        this.newItem = new ListItem();
+        this.newItem = new Item();
         this.addModeIndex = -1;
     }
 
@@ -27,15 +28,15 @@ export class HistoricalListComponent implements OnInit {
         this.addModeIndex = -1;
     }
 
-    selectItem(item:ListItem) {
+    selectItem(item:Item) {
         this.deselectItems();
         this.selectedItem = item;
         this.selectedItem.selected = true;
     }
 
     deselectItems() {
-        for (var i = 0, len = this.item.items.length; i < len; i++) {
-            this.item.items[i].selected = false;
+        for (var i = 0, len = this.container.items.length; i < len; i++) {
+            this.container.items[i].selected = false;
         }
     }
 
@@ -43,15 +44,15 @@ export class HistoricalListComponent implements OnInit {
         //service.saveItems(items
 
         if(this.newItem.name !== '') {
-            this.item.items.push(this.newItem);
-            this.newItem = new ListItem();
+            this.container.items.push(this.newItem);
+            this.newItem = new Item();
         }
 
     }
 
     saveList() {
         //service.saveList()
-        this.itemService.updateList(this.item);
+        this.itemService.updateList(this.container);
         this.exitAddMode();
     }
 
@@ -60,7 +61,7 @@ export class HistoricalListComponent implements OnInit {
     }
 
     deleteItem(index: number) {
-        this.item.items.splice(index, 1);
+        this.container.items.splice(index, 1);
         
         if (this.addModeIndex >= 0) {
             this.exitAddMode();

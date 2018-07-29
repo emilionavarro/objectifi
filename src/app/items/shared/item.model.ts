@@ -1,6 +1,5 @@
-export interface IItem {
-    id: number;
+export class Item {
     name: string;
-    type: string;
-    items: any[];
+    fields: any[];
+    selected: boolean;
 }

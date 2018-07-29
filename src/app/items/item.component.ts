@@ -1,17 +1,16 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { IItem } from './shared/index';
-import { ItemService } from './shared/item.service';
+import { Component, Input } from "@angular/core";
+import { ItemContainer } from "../container/item-container.model";
 
 @Component({
     selector: 'list-item',
     template: `
-        <a [routerLink]="['/item', item.id]" class="card">
+        <a [routerLink]="['/item', container.id]" class="card">
             <div class="card-body">
-                {{item.name}}
+                {{container.name}}
             </div>
         </a>
     `
 })
 export class ItemComponent {
-    @Input() item: IItem;
+    @Input() container: ItemContainer;
 }   
