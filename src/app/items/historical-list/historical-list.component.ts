@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ItemService, Item } from '../shared/index';
 import { ItemContainer } from '../../container/item-container.model';
+import { FieldDialogComponent } from '../../field/field-dialog.component';
+import { MatDialog } from '../../../../node_modules/@angular/material';
 
 @Component({
     selector: 'historical-list',
@@ -12,7 +14,7 @@ export class HistoricalListComponent implements OnInit {
     addModeIndex: number;
     @Input() container: ItemContainer;
 
-    constructor(private itemService: ItemService) {
+    constructor(private itemService: ItemService, public dialog: MatDialog) {
     }
 
     ngOnInit() {
@@ -28,7 +30,7 @@ export class HistoricalListComponent implements OnInit {
         this.addModeIndex = -1;
     }
 
-    selectItem(item:Item) {
+    selectItem(item: Item) {
         this.deselectItems();
         this.selectedItem = item;
         this.selectedItem.selected = true;
@@ -45,7 +47,7 @@ export class HistoricalListComponent implements OnInit {
     saveItems() {
         //service.saveItems(items
 
-        if(this.newItem.name !== '') {
+        if (this.newItem.name !== '') {
             this.container.items.push(this.newItem);
             this.newItem = new Item();
         }
@@ -55,11 +57,11 @@ export class HistoricalListComponent implements OnInit {
     saveList() {
         //service.saveList()
 
-        if(this.container.name !== '') {
+        if (this.container.name !== '') {
             this.itemService.updateList(this.container);
         }
         this.exitAddMode();
-        
+
     }
 
     trackByIndex(index: number, obj: any): any {
@@ -69,11 +71,26 @@ export class HistoricalListComponent implements OnInit {
     deleteItem(index: number) {
         this.deselectItems();
         this.container.items.splice(index, 1);
-        
+
         if (this.addModeIndex >= 0) {
             this.exitAddMode();
         }
         //service.saveList()
     }
 
+    addNewField() {
+        this.openNewFieldDialog();
+    }
+
+    openNewFieldDialog() {
+        let dialogRef = this.dialog.open(FieldDialogComponent, {
+            height: '400px',
+            width: '600px',
+            data: {}
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+        });
+    }
 }

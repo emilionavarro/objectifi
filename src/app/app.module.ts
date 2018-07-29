@@ -18,13 +18,14 @@ import {
   MatCardModule,
   MatGridListModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatDialogModule
  } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /*
-Objectifi Modules
+Objectifi
 */
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +34,6 @@ import {
   ItemsListComponent,
   ItemComponent,
   ItemDetailsComponent,
-  ItemService,
   ItemListResolver
 } from './items/index';
 
@@ -44,10 +44,12 @@ import { TodoListComponent } from './items/todo-list/todo-list.component';
 import { HistoricalListComponent } from './items/historical-list/historical-list.component';
 import { CreateListComponent } from './items/create-list.component';
 import { GenericDateInputComponent } from './common/Inputs/generic-date-input/generic-date-input.component';
+import { FieldDialogComponent } from './field/field-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FieldDialogComponent,
     ItemsListComponent,
     ItemComponent,
     ItemDetailsComponent,
@@ -73,11 +75,17 @@ import { GenericDateInputComponent } from './common/Inputs/generic-date-input/ge
     MatCardModule,
     MatGridListModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [
     ItemListResolver
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ],
+  entryComponents: [
+    FieldDialogComponent
+  ]
 })
 export class AppModule { }

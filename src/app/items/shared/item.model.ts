@@ -1,6 +1,8 @@
+import { Field } from "../../field/field.model";
+
 export class Item {
     name: string;
-    fields: any[];
+    fields: Field[];
     selected: boolean;
 
     constructor() {

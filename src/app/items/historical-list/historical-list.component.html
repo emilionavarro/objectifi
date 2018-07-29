@@ -45,6 +45,7 @@
 
             <mat-card *ngIf="selectedItem">
                 <mat-card-title>Details</mat-card-title>
+
                 <mat-card-content>
                     <div class="mdc-layout-grid__inner">
                         <div class="mdc-layout-grid__cell">
@@ -53,6 +54,9 @@
                             </div>
                         </div>
                     </div>
+                    <button mat-fab (click)="addNewField();"> 
+                        <mat-icon>add</mat-icon>
+                    </button>
                 </mat-card-content>
 
             </mat-card>
