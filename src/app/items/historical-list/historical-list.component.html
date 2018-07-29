@@ -12,6 +12,11 @@
 
             <mat-card *ngFor="let subItem of container.items; let i=index; trackBy:trackByIndex;" style="margin-bottom: 20px">
 
+                <mat-menu #itemMenu="matMenu">
+                    <button mat-menu-item>Edit</button>
+                    <button mat-menu-item (click)="deleteItem(i)">Delete</button>
+                </mat-menu>
+
                 <div (click)="selectItem(subItem);" class="mdc-layout-grid__inner">
 
                     <div class="mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-3-phone">
@@ -44,8 +49,7 @@
                     <div class="mdc-layout-grid__inner">
                         <div class="mdc-layout-grid__cell">
                             <div *ngFor="let subItem of selectedItem?.fields">
-                                    <span>{{subItem.fieldName}}: {{subItem.value}}</span>
-
+                                <span>{{subItem.fieldName}}: {{subItem.value}}</span>
                             </div>
                         </div>
                     </div>
@@ -68,8 +72,3 @@
     </div>
 
 </div>
-
-<mat-menu #itemMenu="matMenu">
-    <button mat-menu-item>Edit</button>
-    <button mat-menu-item (click)="deleteItem(i)">Delete</button>
-</mat-menu>

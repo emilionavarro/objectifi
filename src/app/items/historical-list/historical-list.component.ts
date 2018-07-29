@@ -38,6 +38,8 @@ export class HistoricalListComponent implements OnInit {
         for (var i = 0, len = this.container.items.length; i < len; i++) {
             this.container.items[i].selected = false;
         }
+
+        this.selectedItem = null;
     }
 
     saveItems() {
@@ -65,6 +67,7 @@ export class HistoricalListComponent implements OnInit {
     }
 
     deleteItem(index: number) {
+        this.deselectItems();
         this.container.items.splice(index, 1);
         
         if (this.addModeIndex >= 0) {
