@@ -18,9 +18,10 @@
 
                         <form #editItemForm="ngForm" (ngSubmit)="saveList($event)" novalidate autocomplete="off">
                             <mat-form-field class="example-full-width">
-                                <input matInput name="editableItemName" (click)="enterAddMode(i)" [(ngModel)]="container.items[i].name" name="editName" (blur)="saveList($event)" />
-                                <mat-hint *ngIf="addModeIndex !== i" >Saved</mat-hint>
-                                <mat-hint *ngIf="addModeIndex === i" >Not Saved</mat-hint>
+                                <input matInput name="editableItemName" (click)="enterAddMode(i)" [(ngModel)]="container.items[i].name" name="editName" (blur)="saveList($event)"
+                                />
+                                <mat-hint *ngIf="addModeIndex !== i">Saved</mat-hint>
+                                <mat-hint *ngIf="addModeIndex === i">Not Saved</mat-hint>
                             </mat-form-field>
                         </form>
                     </div>
@@ -36,9 +37,21 @@
 
         </div>
         <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-            <div *ngFor="let subItem of selectedItem?.fields">
-                <span>{{subItem.fieldName}}: {{subItem.value}}</span>
-            </div>
+
+            <mat-card *ngIf="selectedItem">
+                <mat-card-title>Details</mat-card-title>
+                <mat-card-content>
+                    <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell">
+                            <div *ngFor="let subItem of selectedItem?.fields">
+                                    <span>{{subItem.fieldName}}: {{subItem.value}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
         </div>
     </div>
 
