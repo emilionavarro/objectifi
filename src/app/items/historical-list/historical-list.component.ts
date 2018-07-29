@@ -7,6 +7,7 @@ import { IItem, IItemList, ListItem, ItemService } from '../shared/index';
 })
 export class HistoricalListComponent implements OnInit {
     newItem: ListItem;
+    selectedItem: ListItem;
     addModeIndex: number;
     @Input() item: IItemList;
 
@@ -24,6 +25,18 @@ export class HistoricalListComponent implements OnInit {
 
     exitAddMode() {
         this.addModeIndex = -1;
+    }
+
+    selectItem(item:ListItem) {
+        this.deselectItems();
+        this.selectedItem = item;
+        this.selectedItem.selected = true;
+    }
+
+    deselectItems() {
+        for (var i = 0, len = this.item.items.length; i < len; i++) {
+            this.item.items[i].selected = false;
+        }
     }
 
     saveItems() {

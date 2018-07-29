@@ -12,7 +12,7 @@
 
             <mat-card *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" style="margin-bottom: 20px">
 
-                <div class="mdc-layout-grid__inner">
+                <div (click)="selectItem(subItem);" class="mdc-layout-grid__inner">
 
                     <div class="mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-3-phone">
 
@@ -36,7 +36,9 @@
 
         </div>
         <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-
+            <div *ngFor="let subItem of selectedItem?.items">
+                <h1>{{subItem.name}}</h1>
+            </div>
         </div>
     </div>
 
@@ -52,56 +54,6 @@
         </form>
     </div>
 
-
-    <!-- <div class="row">
-        <div class="col">
-
-            <mat-card *ngFor="let subItem of item.items; let i=index; trackBy:trackByIndex;" style="margin-bottom: 20px">
-
-                <div class="mdc-layout-grid">
-                    <div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-3-phone">
-                            <div *ngIf="i !== addModeIndex">
-                                <input [readonly]="true" class="form-control" [(ngModel)]="item.items[i].name" (click)="enterAddMode(i)" />
-                            </div>
-
-                            <form #editItemForm="ngForm" (ngSubmit)="saveList()" novalidate autocomplete="off" *ngIf="i === addModeIndex">
-
-                                <input [(ngModel)]="item.items[i].name" class="form-control" name="editName" (blur)="saveList()" />
-
-                            </form>
-                        </div>
-                        <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-1-phone">
-                            <button mat-icon-button [matMenuTriggerFor]="itemMenu">
-                                <mat-icon>more_vert</mat-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </mat-card>
-
-            <form #newItemForm="ngForm" (ngSubmit)="saveItems()" autocomplete="off">
-
-                <mat-form-field appearance="outline">
-                    <mat-label>New Item</mat-label>
-                    <input matInput name="name" [(ngModel)]="newItem.name" placeholder="Description...">
-                    <mat-hint>Add a New Item!</mat-hint>
-                </mat-form-field>
-
-            </form>
-
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <h5>
-                    hi
-                </h5>
-            </div>
-        </div>
-
-    </div> -->
 </div>
 
 <mat-menu #itemMenu="matMenu">

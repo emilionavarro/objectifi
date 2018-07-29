@@ -127,6 +127,11 @@ const ITEMS = [
                 name: "cpu",
                 date: Date.now(),
                 textHidden: false,
+                items: [
+                    {
+                        name: "this is a test",
+                    }
+                ],
                 customFields: [
                     {
                         price: 500.12

@@ -5,8 +5,10 @@ export class ListItem implements IItem{
     name: string;
     type: string;
     items: any[];
+    selected: boolean;
     constructor() {  
         this.name = "";
+        this.selected = false;
     }
   
   }
