@@ -52,8 +52,12 @@ export class HistoricalListComponent implements OnInit {
 
     saveList() {
         //service.saveList()
-        this.itemService.updateList(this.container);
+
+        if(this.container.name !== '') {
+            this.itemService.updateList(this.container);
+        }
         this.exitAddMode();
+        
     }
 
     trackByIndex(index: number, obj: any): any {
