@@ -84,13 +84,13 @@ export class HistoricalListComponent implements OnInit {
 
     openNewFieldDialog() {
         let dialogRef = this.dialog.open(FieldDialogComponent, {
-            height: '400px',
-            width: '600px',
             data: {}
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
+            if (result) {
+                this.selectedItem.fields.push(result);
+            }
         });
     }
 }
