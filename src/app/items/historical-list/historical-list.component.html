@@ -23,10 +23,10 @@
 
                         <form #editItemForm="ngForm" (ngSubmit)="saveList($event)" novalidate autocomplete="off">
                             <mat-form-field class="example-full-width">
-                                <input matInput name="editableItemName" (click)="enterAddMode(i)" [(ngModel)]="container.items[i].name" name="editName" (blur)="saveList($event)"
+                                <input matInput name="editableItemName" (click)="enterAddMode(i)" [(ngModel)]="container.items[i].name" #editName = ngModel (blur)="saveList($event)"
                                 />
                                 <mat-hint *ngIf="addModeIndex !== i">Saved</mat-hint>
-                                <mat-hint *ngIf="addModeIndex === i">Not Saved</mat-hint>
+                                <mat-hint *ngIf="addModeIndex === i && (editName.dirty)">Not Saved</mat-hint>
                             </mat-form-field>
                         </form>
                     </div>
