@@ -56,11 +56,20 @@ export class HistoricalListComponent implements OnInit {
 
     saveList() {
         //service.saveList()
-
-        if (this.container.name !== '') {
-            this.itemService.updateList(this.container);
+        //Should be a better way to do this. Find the edited item via the 'selected' field
+        //then checks if the name is empty or not before saving. i is effectively the same as item.id. 
+        var i = 0;
+        for(i; i < this.container.items.length; i++){
+        if (this.container.items[i].selected ===true){
+            i = i;
+            break;
         }
+    }
+    if (this.container.items[i].name !==''){
+        this.itemService.updateList(this.container);
         this.exitAddMode();
+    }
+
 
     }
 
