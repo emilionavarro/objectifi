@@ -12,6 +12,8 @@
                             <em *ngIf="newListForm.controls.name?.invalid && (newListForm.controls.name?.touched)">Required</em>
                             <input (ngModel)="newList.name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your list..."
                             />
+                            <label for ="listDescription">Description:</label>
+                            <input (ngModel)="newList.description" name="description" type="text" class="form-control" placeholder="Optional..."/>
                         </div>
 
                         <button type="submit" [disabled]="newListForm.invalid" class="btn btn-primary">Save</button>
