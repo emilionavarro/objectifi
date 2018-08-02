@@ -25,7 +25,7 @@
                             <mat-form-field class="example-full-width">
                                 <input matInput name="editableItemName" (click)="enterAddMode(i)" [(ngModel)]="container.items[i].name" #editName = ngModel (blur)="saveList($event)"
                                 />
-                                <mat-hint *ngIf="addModeIndex !== i">Saved</mat-hint>
+                                <mat-hint *ngIf="addModeIndex !== i || (addModeIndex === i && (!editName.dirty))">Saved</mat-hint>
                                 <mat-hint *ngIf="addModeIndex === i && (editName.dirty)">Not Saved</mat-hint>
                             </mat-form-field>
                         </form>
